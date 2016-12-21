@@ -87,7 +87,7 @@ public class        MyLocation implements LocationListener {
             locationManager.requestLocationUpdates(locationProvider,MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
 
             // Lấy ra vị trí.
-            myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
 
 

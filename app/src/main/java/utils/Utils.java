@@ -94,7 +94,7 @@ public class Utils implements LocationListener{
             locationManager.requestLocationUpdates(provider,MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES,this);
 
             // Lấy ra vị trí.
-            myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 //            myLocation=new Location("My Location");
 //            myLocation.setLatitude(10.853962);
 //            myLocation.setLongitude(106.773867);

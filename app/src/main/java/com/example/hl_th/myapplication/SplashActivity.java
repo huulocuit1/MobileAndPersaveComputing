@@ -220,13 +220,14 @@ public class SplashActivity extends AppCompatActivity {
         {
             district="CanGio";
         }else
-            district=district.replace("District ","");
+            district=district.replace("Quận ","");
 
       return district;
     }
 
     private void startApp() {
         String district= new Utils().getCurrentDistrict();
+        final String defaultDistrict=district;
         district=getDistrict(district);
         String url = "http://jobmaps.tk/android_connect/get_by_district.php?";
         url+="District="+"'"+district+"'";
@@ -236,10 +237,11 @@ public class SplashActivity extends AppCompatActivity {
                 List<Atm> atms = DataManager.getInstance().getAtmDetail();
                 if (atms != null && atms.size() > 0) {
                     //Go to Map activity
-                    Toast.makeText(SplashActivity.this,"Dowload data successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(SplashActivity.this,"Download data successfully",Toast.LENGTH_LONG).show();
 
                 } else {
-                    Toast.makeText(SplashActivity.this,"Dowload data is fail! Checking and Try again",Toast.LENGTH_LONG).show();
+                    String message="I am so sorry. No data for %s. We will update after";
+                    Toast.makeText(SplashActivity.this,String.format(message,defaultDistrict),Toast.LENGTH_LONG).show();
 
                 }
                 Intent i = new Intent(SplashActivity.this, MainActivity.class);

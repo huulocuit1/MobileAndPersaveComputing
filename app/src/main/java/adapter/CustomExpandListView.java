@@ -99,7 +99,7 @@ public class CustomExpandListView extends BaseExpandableListAdapter {
             view.setTag(viewHolder);
         } else
             viewHolder = (ViewHolder) view.getTag();
-        viewHolder.textView.setText(itemAtem.getAddress());
+        viewHolder.textView.setText(""+i1+"----"+ itemAtem.getAddress());
         viewHolder.imageView.setBackgroundResource(itemAtem.getIcon());
         return view;
     }

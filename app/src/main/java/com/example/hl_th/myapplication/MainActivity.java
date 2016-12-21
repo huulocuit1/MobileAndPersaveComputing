@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this, "check", Toast.LENGTH_LONG).show();
         if (atmArrayList != null || atmArrayList.size() != 0) {
             for (int i = 0; i < atmArrayList.size(); i++) {
-                checkLocationOfATM = atmNearYou(new LatLng(atmArrayList.get(i).getLat(), atmArrayList.get(i).getLng()), 15000);
+                checkLocationOfATM = atmNearYou(new LatLng(atmArrayList.get(i).getLat(), atmArrayList.get(i).getLng()), 1000);
                 if (checkLocationOfATM == true) {
                     atmNearestYou.add(atmArrayList.get(i));
                 }
