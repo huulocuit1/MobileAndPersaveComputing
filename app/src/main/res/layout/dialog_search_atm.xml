@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_title_dialog"
+        android:padding="10sp"
+        android:text="SEARCHING ATM BY INFOMATION"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        style="@style/style_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Districts of Ho Chi Minh"
+        android:textColor="#ff000000"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/id_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        style="@style/style_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Bank"
+        android:textColor="#ff000000"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <Spinner
+        android:id="@+id/id_bank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search"
+        android:layout_margin="15sp"
+
+        android:gravity="top|center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/id_cancel_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+
+            android:background="@drawable/btn_huy_state"
+            android:text="Seach" />
+
+        <Button
+            android:id="@+id/id_btn_cancel_searching_by_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/btn_huy_state"
+            android:text="Cancel"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

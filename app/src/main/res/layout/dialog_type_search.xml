@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/type_search_dialog"
+    style="@style/AppTheme.NoActionBar1"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bg_title_dialog"
+        android:gravity="center_horizontal"
+        android:padding="10sp"
+        android:text="TYPE VEHICLE"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/btn_driving"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_search_around_state"
+        android:drawableRight="@drawable/driving"
+        android:gravity="center"
+        android:text="Driving" />
+
+    <Button
+        android:id="@+id/btn_transit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_search_around_state"
+        android:drawableRight="@drawable/transit"
+        android:gravity="center"
+        android:text="Transit" />
+
+    <Button
+        android:id="@+id/btn_walking"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_search_around_state"
+        android:drawableRight="@drawable/walking"
+        android:gravity="center"
+        android:text="Walking" />
+
+    <Button
+        android:id="@+id/btn_cycling"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_search_around_state"
+        android:drawableRight="@drawable/cycling"
+        android:gravity="center"
+        android:text="Cycling" />
+
+    <Button
+        android:id="@+id/btn_flights"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_search_around_state"
+        android:drawableRight="@drawable/flight"
+        android:gravity="center"
+        android:text="Flights" />
+
+    <Button
+        android:id="@+id/id_btn_cancel_type_vehicle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_huy_state"
+        android:text="Cancel"
+
+        />
+
+
+</LinearLayout>
