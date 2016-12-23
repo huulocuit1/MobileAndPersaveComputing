@@ -1,6 +1,5 @@
 package server;
 
-
 import android.os.AsyncTask;
 
 import org.json.JSONArray;
@@ -11,12 +10,16 @@ import java.util.ArrayList;
 
 import entities.Atm;
 
-public class AsyncAtm extends AsyncTask<String, String, String> {
+/**
+ * Created by HL_TH on 12/22/2016.
+ */
+
+public class AsynAtmByType extends AsyncTask<String, String, String> {
     private AsyncListener listener;
 
 
 
-    public AsyncAtm(AsyncListener listener) {
+    public AsynAtmByType(AsyncListener listener) {
         this.listener = listener;
     }
 
@@ -42,10 +45,9 @@ public class AsyncAtm extends AsyncTask<String, String, String> {
             ArrayList<Atm> results = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
                 Atm atm = new Atm(jsonArray.getJSONObject(i));
-
                 results.add(atm);
             }
-            DataManager.getInstance().setAtmDetail(results);
+            DataManager.getInstance().setAtmByType(results);
         } catch (Exception e) {
             e.printStackTrace();
         }

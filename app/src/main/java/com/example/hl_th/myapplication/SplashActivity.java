@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 import android.widget.Toast;
 
 import java.util.List;
 
 import entities.Atm;
+import server.AsynDistrict;
 import server.AsyncAtm;
+import server.AsyncBank;
 import server.AsyncListener;
 import server.DataManager;
 import utils.Utils;
@@ -25,10 +28,11 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
         // get atm list from server
         //check Internet connection
-        Utils.activity=this;
+        Utils.activity = this;
         if (Utils.isNetworkAvailable(this)) {
             //check GPS connection
             checkGps();
@@ -111,7 +115,7 @@ public class SplashActivity extends AppCompatActivity {
                                 if (finalResult) {
                                     startApp();
                                 } else {
-                                    showExitDialog("Connection Fail!","Please connect GPS!");
+                                    showExitDialog("Connection Fail!", "Please connect GPS!");
                                 }
                             }
                         });
@@ -167,88 +171,48 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private String getDistrict(String district)
-    {
-        if(district.equals("Thủ Đức"))
-        {
-            district="ThuDuc";
-        }
-        else if(district.equals("Dĩ An"))
-        {
-            district="ThuDuc";
-        }
-        else if(district.equals("Gò Vấp"))
-        {
-            district="GoVap";
-        }
-        else if(district.equals("Bình Thạnh"))
-        {
-            district="BinhThanh";
-        }
-        else if(district.equals("Tân Bình"))
-        {
-            district="TanBinh";
-        }
-        else if(district.equals("Tân Phú"))
-        {
-            district="TanPhu";
-        }
-        else if(district.equals("Phú Nhuận"))
-        {
-            district="PhuNhuan";
-        } else if(district.equals("Bình Tân"))
-        {
-            district="BinhTan";
-        }
-        else if(district.equals("Củ Chi"))
-        {
-            district="CuChi";
-        }
-        else if(district.equals("Hóc Mộn"))
-        {
-            district="HocMon";
-        }
-        else if(district.equals("Bình Chánh"))
-        {
-            district="BinhChanh";
-        }
-        else if(district.equals("Nhà Bè"))
-        {
-            district="NhaBe";
-        }
-        else if(district.equals("Cần Giờ"))
-        {
-            district="CanGio";
-        }else
-            district=district.replace("Quận ","");
-
-      return district;
-    }
 
     private void startApp() {
-        String district= new Utils().getCurrentDistrict();
-        final String defaultDistrict=district;
-        district=getDistrict(district);
-        String url = "http://jobmaps.tk/android_connect/get_by_district.php?";
-        url+="District="+"'"+district+"'";
-        AsyncAtm asyncAtm = new AsyncAtm(new AsyncListener() {
+
+        AsyncBank asyncBank = new AsyncBank(new AsyncListener() {
             @Override
             public void onAsyncComplete() {
-                List<Atm> atms = DataManager.getInstance().getAtmDetail();
-                if (atms != null && atms.size() > 0) {
-                    //Go to Map activity
-                    Toast.makeText(SplashActivity.this,"Download data successfully",Toast.LENGTH_LONG).show();
 
-                } else {
-                    String message="I am so sorry. No data for %s. We will update after";
-                    Toast.makeText(SplashActivity.this,String.format(message,defaultDistrict),Toast.LENGTH_LONG).show();
+                String district = new Utils().getCurrentDistrict();
+                district = Utils.getDistrict(district);
+                String url = "http://jobmaps.tk/android_connect/get_by_district.php?";
+                url += "District=" + "'" + district + "'";
+                AsyncAtm asyncAtm = new AsyncAtm(new AsyncListener() {
+                    @Override
+                    public void onAsyncComplete() {
 
-                }
-                Intent i = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(i);
-                finish();
+                        AsynDistrict asynDistrict=new AsynDistrict(new AsyncListener() {
+                            @Override
+                            public void onAsyncComplete() {
+
+                                List<Atm> atms = DataManager.getInstance().getAtmDetail();
+                                if (atms != null && atms.size() > 0) {
+                                    //Go to Map activity
+                                    Toast.makeText(SplashActivity.this, "Dowload data successfully", Toast.LENGTH_LONG).show();
+
+                                } else {
+                                    Toast.makeText(SplashActivity.this, "Dowload data is fail! Checking and Try again", Toast.LENGTH_LONG).show();
+
+                                }
+                                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+                        });
+                        asynDistrict.execute("http://jobmaps.tk/android_connect/get_all_district.php");
+
+                    }
+                });
+                asyncAtm.execute(url);
+
             }
         });
-        asyncAtm.execute(url);
+        asyncBank.execute("http://jobmaps.tk/android_connect/get_all_bank.php");
+
     }
 }

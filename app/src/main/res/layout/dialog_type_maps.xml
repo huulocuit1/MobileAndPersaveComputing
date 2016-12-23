@@ -19,47 +19,45 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/btn_driving"
+        android:id="@+id/btn_normal"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/btn_search_around_state"
-        android:drawableRight="@drawable/driving"
         android:gravity="center"
         android:text="Normal" />
 
     <Button
-        android:id="@+id/btn_transit"
+        android:id="@+id/btn_hybred"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:background="@drawable/btn_search_around_state"
-        android:drawableRight="@drawable/transit"
+
         android:gravity="center"
         android:text="Hybred" />
 
     <Button
-        android:id="@+id/btn_walking"
+        android:id="@+id/btn_satellite"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:background="@drawable/btn_search_around_state"
-        android:drawableRight="@drawable/walking"
+
         android:gravity="center"
         android:text="Satellite" />
 
     <Button
-        android:id="@+id/btn_cycling"
+        android:id="@+id/btn_terrain"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:background="@drawable/btn_search_around_state"
-        android:drawableRight="@drawable/cycling"
         android:gravity="center"
         android:text="Terrain" />
 

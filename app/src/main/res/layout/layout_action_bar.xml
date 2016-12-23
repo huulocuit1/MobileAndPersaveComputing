@@ -11,46 +11,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:visibility="gone"
+            android:visibility="visible"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                >
                 <LinearLayout
+                    android:id="@+id/test"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <TextView
                         style="@style/style_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Destination:" />
-
+                        android:text="Des:" />
                     <TextView
                         android:id="@+id/id_destination"
                         style="@style/style_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="100km" />
-
-
+                        android:text="0.0 km" />
                 </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/id_km"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/test"
+                    android:paddingLeft="20dp"
+                    android:spinnerMode="dropdown" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -71,7 +74,7 @@
                         style="@style/style_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1h30" />
+                        android:text="0.0 h/m" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -79,15 +82,10 @@
         </android.support.v7.widget.Toolbar>
 
 
-
-
     </android.support.design.widget.AppBarLayout>
 
 
-
     <include layout="@layout/layout_maps" />
-
-
 
 
 </android.support.design.widget.CoordinatorLayout>

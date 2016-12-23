@@ -87,10 +87,11 @@ public class        MyLocation implements LocationListener {
             locationManager.requestLocationUpdates(locationProvider,MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
 
             // Lấy ra vị trí.
-            myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-
-
+            myLocation = locationManager.getLastKnownLocation(locationProvider);
+            if(myLocation==null)
+            {
+                myLocation=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            }
         }
         // Với Android API >= 23 phải catch SecurityException.
         catch (SecurityException e) {
