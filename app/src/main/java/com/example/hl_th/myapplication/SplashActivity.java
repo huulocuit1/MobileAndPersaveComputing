@@ -227,6 +227,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void startApp() {
         String district= new Utils().getCurrentDistrict();
+//        Toast.makeText(SplashActivity.this,district,Toast.LENGTH_LONG).show();
         final String defaultDistrict=district;
         district=getDistrict(district);
         String url = "http://jobmaps.tk/android_connect/get_by_district.php?";
