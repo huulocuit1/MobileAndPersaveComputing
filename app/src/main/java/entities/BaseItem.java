@@ -6,19 +6,19 @@ package entities;
 
 public class BaseItem {
     private int icon;
-    private String address;
+    private String name;
 
     public BaseItem(String address, int icon) {
-        this.address = address;
+        this.name = address;
         this.icon = icon;
     }
 
-    public String getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getIcon() {

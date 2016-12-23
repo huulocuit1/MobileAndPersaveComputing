@@ -90,7 +90,7 @@ public class ItemSpinnerAdapter extends BaseAdapter {
         final BaseItem itemAtem = (BaseItem) arr.get(position);
         if (itemAtem != null) {
             holder.itemIcon.setImageResource(itemAtem.getIcon());
-            holder.itemName.setText(itemAtem.getAddress());
+            holder.itemName.setText(itemAtem.getName());
 
 
         }

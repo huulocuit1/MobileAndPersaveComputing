@@ -4,6 +4,7 @@ import java.util.List;
 
 import entities.Atm;
 import entities.Bank;
+import entities.District;
 
 
 public class DataManager {
@@ -12,6 +13,26 @@ public class DataManager {
     private  ArrayList<Atm> atmDetails;
     private List<Bank> bankDetails;
     private List<Atm> searchDetails;
+
+    public List<Atm> getAtmByType() {
+        return atmByType;
+    }
+
+    public void setAtmByType(List<Atm> atmByType) {
+        this.atmByType = atmByType;
+    }
+
+    private List<Atm> atmByType;
+    private List<District> districtDetails;
+
+    public List<District> getDistrictDetails() {
+        return districtDetails;
+    }
+
+    public void setDistrictDetails(List<District> districtDetails) {
+        this.districtDetails = districtDetails;
+    }
+
     private String wayJson;
 
     public static DataManager getInstance() {

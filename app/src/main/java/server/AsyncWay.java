@@ -28,6 +28,10 @@ public class AsyncWay extends AsyncTask<String, String, String> {
         super.onPostExecute(result);
 //            DataManager.getInstance().setWayJson(result);
         if (listener != null)
-            listener.onAsyncComplete();
+            try {
+                listener.onAsyncComplete();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 }

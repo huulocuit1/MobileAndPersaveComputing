@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import entities.MyData;
 
-public class GuessCountryService {
+public class City {
 	
 
 	Context context;
@@ -14,12 +14,12 @@ public class GuessCountryService {
 	
 	String DatabaseName;
 	
-	public GuessCountryService(Context context){
+	public City(Context context){
 		this.context = context;
 	}
 	
 //	huuloc
-	public GuessCountryService(Context context, String databaseName) {
+	public City(Context context, String databaseName) {
 		super();
 		this.context = context;
 		this.DatabaseName = databaseName;

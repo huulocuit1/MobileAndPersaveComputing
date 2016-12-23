@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,18 +34,24 @@ public class AsyncBank  extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         try {
-            JSONArray jsonArray = new JSONArray(result);
+            JSONObject jsonObject = new JSONObject(result);
+            JSONArray jsonArray = jsonObject.getJSONArray("ATM");
             List<Bank> results = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
                 Bank atm = new Bank(jsonArray.getJSONObject(i));
                 results.add(atm);
             }
+            DataManager.getInstance().setBankDetail(results);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
         if (listener != null) {
-            listener.onAsyncComplete();
+            try {
+                listener.onAsyncComplete();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
